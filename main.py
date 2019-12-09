@@ -17,6 +17,20 @@ def reset_main():
     ent2_var.set("")
     ent3_var.set("")
 
+def eval_date():
+    d1 = ent1.get()
+    d2 = ent2.get()
+    d1 = datetime.strptime(d1, "%d/%m/%Y")
+    d2 = datetime.strptime(d2, "%d/%m/%Y")
+    ent3_var.set(abs((d2-d1).days))
+
+def exit_main():
+    QExit = messagebox.askyesno("Eventer", "Confirm if you want to exit")
+    if QExit:
+        root.destroy()
+    else:
+        pass
+
 root = Tk()
 root.title("Eventer")
 root.iconbitmap("Photo\\calendar.ico")
@@ -62,10 +76,10 @@ btn2 = Button(frm1, text="Reset", bd= 5, command=reset_main)
 btn2.place(relx=0.7, rely=0.6, relwidth=0.15, anchor=W)
 
 # =====================================================Buttons=====================================================
-btn1 = Button(frm1, text="Total", bd= 5)
+btn1 = Button(frm1, text="Total", bd= 5,  command=eval_date)
 btn1.place(relx=0.35, rely=0.72, relwidth=0.3, relheight=0.1, anchor=W)
 
-btn3 = Button(frm1, text="Exit", bd= 5)
+btn3 = Button(frm1, text="Exit", bd= 5, command=exit_main)
 btn3.place(relx=0.7, rely=0.72, relwidth=0.15, relheight=0.1, anchor=W)
 
 root.mainloop()
