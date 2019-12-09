@@ -61,4 +61,11 @@ ent3.place(relx=0.35, rely=0.6, relwidth=0.3, anchor=W)
 btn2 = Button(frm1, text="Reset", bd= 5, command=reset_main)
 btn2.place(relx=0.7, rely=0.6, relwidth=0.15, anchor=W)
 
+# =====================================================Buttons=====================================================
+btn1 = Button(frm1, text="Total", bd= 5)
+btn1.place(relx=0.35, rely=0.72, relwidth=0.3, relheight=0.1, anchor=W)
+
+btn3 = Button(frm1, text="Exit", bd= 5)
+btn3.place(relx=0.7, rely=0.72, relwidth=0.15, relheight=0.1, anchor=W)
+
 root.mainloop()
