@@ -4,6 +4,19 @@ from datetime import datetime
 import time
 
 
+def set_today1():
+    cur = time.strftime("%d/%m/%Y")
+    ent1.insert(END, cur)
+
+def set_today2():
+    cur = time.strftime("%d/%m/%Y")
+    ent2.insert(END, cur)
+
+def reset_main():
+    ent1_var.set("")
+    ent2_var.set("")
+    ent3_var.set("")
+
 root = Tk()
 root.title("Eventer")
 root.iconbitmap("Photo\\calendar.ico")
@@ -29,7 +42,7 @@ lbl1.place(relx=0.2, rely=0.4, anchor=W)
 ent1 = Entry(frm1, textvariable=ent1_var, bd=5)
 ent1.place(relx=0.35, rely=0.4, relwidth=0.3, anchor=W)
 
-btn01 = Button(frm1, text="Today", bd= 5)
+btn01 = Button(frm1, text="Today", bd= 5, command=set_today1)
 btn01.place(relx=0.7, rely=0.4, relwidth=0.15, anchor=W)
 
 lbl2 = Label(frm1, text="End:", bg="gray60",  padx=10, pady=10,  justify=LEFT)
@@ -37,7 +50,7 @@ lbl2.place(relx=0.2, rely=0.5, anchor=W)
 ent2 = Entry(frm1, textvariable=ent2_var, bd=5)
 ent2.place(relx=0.35, rely=0.5, relwidth=0.3, anchor=W)
 
-btn02 = Button(frm1, text="Today", bd= 5)
+btn02 = Button(frm1, text="Today", bd= 5, command=set_today2)
 btn02.place(relx=0.7, rely=0.5, relwidth=0.15, anchor=W)
 
 lbl3 = Label(frm1, text="Result:", bg="gray60",  padx=10, pady=10,  justify=LEFT)
@@ -45,7 +58,7 @@ lbl3.place(relx=0.2, rely=0.6, anchor=W)
 ent3 = Entry(frm1, textvariable=ent3_var, bd=5)
 ent3.place(relx=0.35, rely=0.6, relwidth=0.3, anchor=W)
 
-btn2 = Button(frm1, text="Reset", bd= 5)
+btn2 = Button(frm1, text="Reset", bd= 5, command=reset_main)
 btn2.place(relx=0.7, rely=0.6, relwidth=0.15, anchor=W)
 
 root.mainloop()
