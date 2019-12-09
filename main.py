@@ -4,13 +4,14 @@ from datetime import datetime
 import time
 
 
-def set_today1():
+def set_today(val):
     cur = time.strftime("%d/%m/%Y")
-    ent1.insert(END, cur)
+    if val == 1:
+        ent1.insert(END, cur)
+    elif val == 2:
+        ent2.insert(END, cur)
 
-def set_today2():
-    cur = time.strftime("%d/%m/%Y")
-    ent2.insert(END, cur)
+
 
 def reset_main():
     ent1_var.set("")
@@ -56,7 +57,7 @@ lbl1.place(relx=0.2, rely=0.4, anchor=W)
 ent1 = Entry(frm1, textvariable=ent1_var, bd=5)
 ent1.place(relx=0.35, rely=0.4, relwidth=0.3, anchor=W)
 
-btn01 = Button(frm1, text="Today", bd= 5, command=set_today1)
+btn01 = Button(frm1, text="Today", bd= 5, command=lambda: set_today(1))
 btn01.place(relx=0.7, rely=0.4, relwidth=0.15, anchor=W)
 
 lbl2 = Label(frm1, text="End:", bg="gray60",  padx=10, pady=10,  justify=LEFT)
@@ -64,7 +65,7 @@ lbl2.place(relx=0.2, rely=0.5, anchor=W)
 ent2 = Entry(frm1, textvariable=ent2_var, bd=5)
 ent2.place(relx=0.35, rely=0.5, relwidth=0.3, anchor=W)
 
-btn02 = Button(frm1, text="Today", bd= 5, command=set_today2)
+btn02 = Button(frm1, text="Today", bd= 5, command=lambda: set_today(2))
 btn02.place(relx=0.7, rely=0.5, relwidth=0.15, anchor=W)
 
 lbl3 = Label(frm1, text="Result:", bg="gray60",  padx=10, pady=10,  justify=LEFT)
